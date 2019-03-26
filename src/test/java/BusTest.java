@@ -32,12 +32,18 @@ public class BusTest {
 
     @Test
     public void checkAddPassenger() {
-        assertEquals(1, bus.addPassenger(person));
+
+        bus.addPassenger(person);
+        assertEquals(1, bus.passengerCount());
     }
 
     @Test
     public void checkAddPassengerWhenFull() {
-
+        bus = new Bus ("Dundee", 2);
+        bus.addPassenger(person);
+        bus.addPassenger(person);
+        bus.addPassenger(person);
+        assertEquals(2, bus.passengerCount());
     }
 
     @Test
@@ -46,7 +52,8 @@ public class BusTest {
         bus.addPassenger(person);
         bus.addPassenger(person);
         bus.addPassenger(person);
-        assertEquals(3, bus.removePassenger());
+        bus.removePassenger();
+        assertEquals(3, bus.passengerCount());
     }
 
 }
